@@ -1,302 +1,291 @@
-# Intellectual Property Space-Time Proof Protocol (IPSTP)
 
-## Protocol Repository
 
-**Author:** Li Zhijun
-**ORCID:** 0009-0004-8456-7107
+# IPSTP v1.0
 
----
+## Knowledge Space-Time Proof Protocol
 
-# 1. Repository Purpose
-
-This repository defines and maintains the **Intellectual Property Space-Time Proof Protocol (IPSTP)**.
-
-IPSTP is a structured framework for organizing scientific and theoretical outputs into verifiable, time-stamped, and tamper-evident evidence chains.
-
-It is not a scientific theory itself, but a **meta-level protocol for publishing, storing, and attributing theoretical work**.
-
-Primary objectives:
-
-* Establish verifiable publication timestamps
-* Separate verification rights from access rights
-* Preserve proprietary implementation while enabling reproducibility
-* Provide structured evidence for authorship attribution
-* Support cross-platform archival (GitHub, arXiv, OSF, etc.)
+## 知识产权时空证明协议
 
 ---
 
-# 2. Core Design Principle
+## **1. 项目简介**
 
-IPSTP is built on a dual-axis model:
+IPSTP（Intellectual Property Space-Time Proof Protocol，知识产权时空证明协议）是一种用于科研成果发布与知识产权证据化的结构化协议。
 
-### Spatial Anchoring (Content Integrity)
+其核心目标是：
 
-* Hash-based binding of documents
-* Ensures content immutability after publication
-* Enables cryptographic verification of originality
-
-### Temporal Anchoring (Publication Time)
-
-* External timestamp services (TSA, blockchain, preprint servers)
-* Establishes verifiable publication chronology
-* Prevents retroactive modification of authorship claims
-
-Together, they form a **Space–Time Evidence Grid** for intellectual output.
+* 将科研成果拆分为可验证结构
+* 分离“科学结论”和“实现过程”
+* 构建可追溯时间戳证据链
+* 支持 GitHub / arXiv / DOI / TSA 联合发布
 
 ---
 
-# 3. Three-Layer Structure
+## **2. 核心理念**
 
-All IPSTP-compliant works are organized into three layers:
+IPSTP基于一个基本原则：
 
-### Layer A — Condition & Conclusion Layer (Public)
+> 科学结论应公开可验证，计算实现可以选择性保密。
 
-* Formal definitions of conditions (C)
-* Final results / conclusions (Y)
-* Minimal reproducibility description
-
-### Layer B — Constraint Layer (Public)
-
-* Structural constraints
-* Invariance conditions
-* Validity domains
-* Non-algorithmic derivation logic
-
-### Layer C — Implementation Layer (Private / Encrypted)
-
-* Full computational procedures
-* Numerical algorithms
-* Source code and engineering details
-* Stored separately with cryptographic protection
-
-Layer C is not required for validation.
+因此将所有内容拆分为三层：
 
 ---
 
-# 4. Evidence Chain Model
+## **3. 三层结构说明**
 
-A valid IPSTP record must include:
+### **A层：条件与结论层（必须公开）**
 
-* External timestamp (TSA / arXiv / OSF / blockchain)
-* Hash binding of published content
-* Explicit Layer A + B disclosure
-* Optional Layer C encrypted archival reference
+包含：
 
-This forms a **verifiable evidence chain**, not merely a publication record.
+* 理论假设（C）
+* 数学模型定义
+* 参数体系
+* 最终结论（Y）
+* 可验证预测结果
+
+👉 作用：定义“你提出了什么”
 
 ---
 
-# 5. Repository Contents
+### **B层：约束结构层（必须公开）**
 
-```text
-/protocols/
-    IPSTP specification documents
-    TAP / IPSTP derivatives
+包含：
 
-/papers/
-    Works published under IPSTP framework
+* 模型约束条件
+* 不变量结构
+* 稳定性条件
+* 收敛性条件（非算法）
 
-/evidence/
-    Hash records, timestamps, archival proofs
+👉 作用：解释“为什么结论成立”
 
-/archives/
-    Encrypted Layer C materials
+---
 
-/appendix/
-    Technical notes and extended derivations
+### **C层：实现层（默认保密）**
 
-/docs/
-    Protocol documentation and usage guidelines
+包含：
+
+* 数值计算代码
+* 仿真程序
+* 工程实现路径
+* 优化算法细节
+
+👉 作用：实现“如何计算”
+
+⚠️ C层不影响科学结论的可验证性，可选择不公开。
+
+---
+
+## **4. 如何使用 IPSTP**
+
+---
+
+## **Step 1：编写论文结构**
+
+论文必须按照以下结构组织：
+
+```
+1. A层：模型与结论
+2. B层：约束与逻辑结构
+3. C层：实现说明（可选）
 ```
 
 ---
 
-# 6. Usage Scope
+## **Step 2：生成时间锚点（Time Anchor）**
 
-IPSTP applies to:
+必须选择至少一种可信时间戳来源：
 
-* Deterministic theoretical systems
-* Condition–conclusion mapping models
-* Mathematical or physical frameworks with reproducible outputs
+### 推荐方式：
 
-IPSTP does NOT apply to:
-
-* Pure experimental studies
-* Black-box machine learning models
-* Non-reproducible empirical claims
-* Pure mathematical proofs without computational structure
+* arXiv submission timestamp
+* Zenodo DOI timestamp
+* OSF Preprints timestamp
+* TSA（可信时间戳服务 RFC3161）
+* Git commit history
+* 区块链存证（Bitcoin / Ethereum）
 
 ---
 
-# 7. External Archival Strategy
+## **Step 3：生成空间锚定（Hash Binding）**
 
-IPSTP is designed for multi-platform synchronization:
+对 A层 + B层 +（可选C层）进行：
 
-* GitHub (version control + distribution)
-* arXiv (academic timestamping)
-* OSF / Preprints (open dissemination)
-* Blockchain timestamp services (immutability layer)
-* Local encrypted backups (Layer C preservation)
+```
+SHA-256 hash
+```
 
----
-
-# 8. Legal Positioning
-
-IPSTP does not create new legal rights.
-
-It functions as a **structured evidence generation protocol**.
-
-Legal interpretation depends on applicable jurisdiction and existing intellectual property laws.
+用于确保内容不可篡改。
 
 ---
 
-# 9. Citation
+## **Step 4：形成 VDE（可验证公开事件）**
 
-Li, Z.
+当同时满足以下条件时：
 
-Intellectual Property Space-Time Proof Protocol (IPSTP)
+* A/B层公开
+* 时间戳生成成功
+* Hash绑定完成
+* 可被第三方复现
 
-GitHub Repository
+定义为：
 
----
-
-# 10. Contact
-
-Email:
-
-* [lizhijun@yuantai.ac.cn](mailto:lizhijun@yuantai.ac.cn)
-* [zhijundi@qq.com](mailto:zhijundi@qq.com)
-
-ORCID:
-0009-0004-8456-7107
+> **VDE（Verifiable Disclosure Event）可验证公开事件**
 
 ---
 
----
+## **5. GitHub仓库推荐结构**
 
-# 中文版本
-
-# 知识产权时空证明协议（IPSTP）
-
-## 协议型仓库说明
-
-**作者：李志军**
-
----
-
-# 1. 仓库用途
-
-本仓库用于定义与维护**知识产权时空证明协议（IPSTP）**。
-
-IPSTP是一套用于科学理论与技术成果的结构化发布与存证框架。
-
-其本质不是某一科学理论，而是：
-
-> 用于理论发布、存证、归因与证据链构建的元协议系统。
-
-核心目标：
-
-* 建立可验证时间戳体系
-* 分离验证权与访问权
-* 保留实现细节同时保证可复现性
-* 支持跨平台存证
-* 提供可用于归因争议的结构化证据链
+```
+IPSTP/
+│
+├── A_layer/
+│   └── paper_main.md
+│
+├── B_layer/
+│   └── constraints.md
+│
+├── C_layer_private/
+│   └── encrypted_code.zip
+│
+├── evidence/
+│   ├── hash.txt
+│   ├── timestamp.txt
+│   └── vde_record.json
+│
+├── templates/
+│   └── ipstp_paper_template.md
+│
+├── examples/
+│   └── SGT_demo.md
+│
+└── README.md
+```
 
 ---
 
-# 2. 核心设计原则
+## **6. 如何写一篇 IPSTP 论文**
 
-IPSTP基于双轴结构：
+在论文开头加入：
 
-### 空间锚定（内容完整性）
-
-* 哈希绑定确保内容不可篡改
-* 保证发布内容唯一性
-
-### 时间锚定（发布时间）
-
-* 通过第三方时间戳系统建立时间记录
-* 防止事后篡改发布时间
-
-两者共同构成：
-
-> 空间–时间证据网格体系
+```
+本文遵循 IPSTP v1.0（知识产权时空证明协议）框架发布。
+```
 
 ---
 
-# 3. 三层结构
+## **标准论文结构：**
 
-所有IPSTP内容分为三层：
+### 1. Introduction
 
-### A层：条件与结论（公开）
+* 问题背景
+* CCTS系统定义
 
-* 理论条件C
+### 2. A层（模型与结论）
+
+* 条件C
 * 结论Y
-* 最小可复现信息
 
-### B层：约束框架（公开）
+### 3. B层（约束结构）
 
-* 不变量结构
-* 适用条件
-* 结构性约束
+* 模型约束
+* 理论稳定性解释
 
-### C层：实现层（保密）
+### 4. VDE信息
 
-* 算法细节
-* 数值实现
-* 工程代码
+* 时间戳来源
+* SHA-256哈希值
+* GitHub / DOI链接
 
-C层不影响基础验证成立。
+### 5. （可选）C层说明
 
----
-
-# 4. 证据链结构
-
-完整IPSTP证据链包含：
-
-* 外部时间戳
-* 内容哈希绑定
-* A+B层完整公开
-* C层加密存证（可选）
-
-形成：
-
-> 可验证的证据链，而非单纯论文发表记录
+* 是否公开
+* 是否加密
+* 是否保留
 
 ---
 
-# 5. 适用范围
+## **7. 推荐发布平台**
 
-适用于：
+### 学术预印本平台（优先）
 
-* 确定性理论系统
-* 条件–结论映射模型
-* 可复现计算体系
-
-不适用于：
-
-* 纯实验研究
-* 黑箱AI模型
-* 不可复现经验性结论
-
----
-
-# 6. 法律说明
-
-IPSTP不创设法律权利。
-
-其作用是：
-
-> 提供结构化证据生成与存证机制
-
-最终法律效力依赖现行司法体系认定。
+* arXiv.org（最重要）
+* OSF Preprints
+* Research Square
+* SSRN
+* Zenodo（自动生成 DOI）
+* HAL（法国国家仓库）
+* bioRxiv（生物）
+* medRxiv（医学）
+* ChemRxiv（化学）
+* EarthArXiv（地球科学）
+* SocArXiv（社会科学）
+* engrXiv（工程）
+* TechRxiv（IEEE）
+* Preprints.org（多学科）
 
 ---
 
-# 7. 引用方式
+### 代码与证据存储平台
 
-Li, Z.
+* GitHub（主发布）
+* GitLab（备份）
+* IPFS（去中心化存储）
+* Arweave（永久存储）
 
-IPSTP Protocol Repository
+---
 
-GitHub
+### 时间戳与证据工具
+
+* TSA可信时间戳服务（RFC3161）
+* OpenTimestamps（Bitcoin）
+* WIPO Proof
+* Ethereum / Polygon timestamping
+* 国家级电子证据平台
+
+---
+
+## **8. 法律与学术定位**
+
+IPSTP不提供法律权利声明，仅提供：
+
+* 结构化科学证据格式
+* 可验证时间记录
+* prior-art 记录结构
+* 跨平台一致性证明机制
+
+知识产权归属仍由现行法律体系决定。
+
+---
+
+## **9. 使用规则总结**
+
+一句话总结：
+
+> IPSTP = 科学内容结构化 + 时间锚定 + 哈希绑定 + 可验证发布事件
+
+---
+
+## **10. 许可证（License）**
+
+本协议及说明文档：
+
+* 可自由使用
+* 可自由修改
+* 可用于学术与工程用途
+* 建议保留引用来源
+
+---
+
+## **11. 版本信息**
+
+* IPSTP v1.0
+* 发布方式：GitHub Open Repository
+* 作者：李志军（SGT项目组）
+
+---
+
+## **12. 一句话核心定义**
+
+> IPSTP的本质，是把“科研发表行为”变成“可验证的时间锚定证据事件”。
+
+---
