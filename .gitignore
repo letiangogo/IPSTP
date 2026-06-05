@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Temporary
+*.tmp
+*.bak
+
+# Encryption
+*.key
+*.pem
+
+# Large archives
+*.zip
+*.7z
+*.rar
+
+# Private evidence
+evidence/private/*
