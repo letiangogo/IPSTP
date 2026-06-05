@@ -2,8 +2,6 @@
 
 # IPSTP v1.0
 
-# 知识产权时空证明协议（Intellectual Property Space-Time Proof Protocol）
-
 **Author / 作者：** Li Zhijun（李志军）
 **Affiliation / 项目关联：** SGT 空能引力理论项目组（SGT Project Group）
 **Email：** [lizhijun@yuantai.ac.cn](mailto:lizhijun@yuantai.ac.cn) ｜ [zhijundi@qq.com](mailto:zhijundi@qq.com)
